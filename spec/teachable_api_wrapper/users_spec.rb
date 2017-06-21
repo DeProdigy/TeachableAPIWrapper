@@ -43,17 +43,17 @@ RSpec.describe TeachableAPIWrapper::Users do
     let(:response) { TeachableAPIWrapper::Users.user_info('any@test.com', 'auth_token') }
 
     it 'returns a user' do
-      mock_response = double(body: {user: {}}.to_json)
+      mock_response = double(body: {}.to_json)
       expect(TeachableAPIWrapper::Fetcher).to receive(:get).and_return(mock_response)
 
-      expect(response).to include 'user'
+      expect(response).not_to include 'error'
     end
 
     it 'returns errors when not a valid request' do
-      mock_response = double(body: {errors: {}}.to_json)
+      mock_response = double(body: {error: {}}.to_json)
       expect(TeachableAPIWrapper::Fetcher).to receive(:get).and_return(mock_response)
 
-      expect(response).to include 'errors'
+      expect(response).to include 'error'
     end
   end
 end

@@ -35,7 +35,7 @@ module TeachableAPIWrapper
         user_token: auth_token,
       }
 
-      response = TeachableAPIWrapper::Fetcher.delete("/api/orders#{id}.json", auth_data)
+      response = TeachableAPIWrapper::Fetcher.delete("/api/orders/#{id}.json", auth_data)
       JSON.parse(response.body)
     end
   end

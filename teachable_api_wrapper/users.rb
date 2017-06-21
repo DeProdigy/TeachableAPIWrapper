@@ -30,8 +30,8 @@ module TeachableAPIWrapper
 
     def self.user_info(email, auth_token)
       data = {
-        email: email,
-        auth_token: auth_token,
+        user_email: email,
+        user_token: auth_token,
       }
 
       response = TeachableAPIWrapper::Fetcher.get('/api/users/current_user/edit.json', data)
