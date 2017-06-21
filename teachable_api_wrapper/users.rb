@@ -1,5 +1,5 @@
-require_relative 'fetcher'
 require 'json'
+require_relative 'fetcher'
 
 module TeachableAPIWrapper
   class Users
